@@ -2,6 +2,7 @@
 
 // write code here
 const table = document.querySelector('table');
+const tbody = table.querySelector('tbody');
 const rowAppend = document.querySelector('.append-row');
 const rowRemove = document.querySelector('.remove-row');
 const newColum = document.querySelector('.append-column');
@@ -19,12 +20,12 @@ function getCell() {
 }
 
 function getRowCount() {
-  return table.rows.length;
+  return tbody.rows.length;
 }
 
 function getColumCount() {
-  if (table.rows.length > 0) {
-    return table.rows[0].cells.length;
+  if (tbody.rows.length > 0) {
+    return tbody.rows[0].cells.length;
   } else {
     return 0;
   }
@@ -44,7 +45,7 @@ rowAppend.addEventListener('click', () => {
   for (let i = 0; i < colCount; i++) {
     newRow.appendChild(getCell());
   }
-  table.appendChild(newRow);
+  tbody.appendChild(newRow);
   updateButtons();
 });
 
